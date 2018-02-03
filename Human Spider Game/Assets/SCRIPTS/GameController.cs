@@ -12,6 +12,10 @@ public class GameController : MonoBehaviour {
 
     public Slider content;
 
+    public KeyCode kC;
+
+   public bool countdownDone = false;
+
     void Start ()
     {
 		
@@ -21,7 +25,7 @@ public class GameController : MonoBehaviour {
 	void Update ()
     {
     
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(kC))
         {
             content.value += 3.0f;
         }
@@ -34,6 +38,7 @@ public class GameController : MonoBehaviour {
         if(content.value != maxStrength)
         {
             content.value = Mathf.MoveTowards(content.value, maxStrength, recoveryRate * Time.deltaTime);
+           
         }
     }
 }
