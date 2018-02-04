@@ -16,6 +16,9 @@ public class GameController : MonoBehaviour {
 
    public bool countdownDone = false;
 
+    public GameObject CountdownObj;
+    public GameObject MainMenuObj;
+
     void Start ()
     {
 		
@@ -29,8 +32,11 @@ public class GameController : MonoBehaviour {
         {
             content.value += 3.0f;
         }
-            
-        HandleBar();
+
+        if (content.gameObject.activeSelf == true)
+        {
+            HandleBar();
+        }
     }
 
     private void HandleBar()
@@ -39,6 +45,28 @@ public class GameController : MonoBehaviour {
         {
             content.value = Mathf.MoveTowards(content.value, maxStrength, recoveryRate * Time.deltaTime);
            
+        }
+    }
+
+    public void StartCountDown()
+    {
+        if(CountdownObj != null && CountdownObj.activeSelf == false)
+        {
+            CountdownObj.SetActive(true);
+            
+        }
+    }
+
+    public void MainMenuToggle(bool isActive)
+    {
+        MainMenuObj.SetActive(isActive);
+    }
+
+    public void StartGame()
+    {
+        if (content != null && content.gameObject.activeSelf == false)
+        {
+            content.gameObject.SetActive(true); // activating slider
         }
     }
 }

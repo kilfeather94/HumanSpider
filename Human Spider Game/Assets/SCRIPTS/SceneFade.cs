@@ -7,10 +7,17 @@ public class SceneFade : MonoBehaviour
 {
 
     public Image splashScreen;
+    public GameObject mainMenu;
     private Image fadeBlack;
+
+    RectTransform objectRectTransform;
 
 	void Start ()
     {
+        RectTransform rTransform = splashScreen.GetComponent<RectTransform>();
+
+        rTransform.sizeDelta = new Vector2(Screen.width, Screen.height);
+
         fadeBlack = GetComponent<Image>();
 	}
 	
@@ -23,5 +30,6 @@ public class SceneFade : MonoBehaviour
     public void DisableSplashScreen()
     {
         splashScreen.enabled = false;
+        mainMenu.SetActive(true);     
     }
 }
