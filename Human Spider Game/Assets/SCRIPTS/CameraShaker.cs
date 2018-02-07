@@ -22,6 +22,7 @@ public class CameraShaker : MonoBehaviour
 
 	void Update ()
     {
+        /*
 		if(shouldShake)
         {
             if(duration > 0)
@@ -36,5 +37,16 @@ public class CameraShaker : MonoBehaviour
                 camera.localPosition = startPosition;
             }
         }
+        */
+        ShakePermanent();
 	}
+
+    void ShakePermanent() // TODO Testing permanent camera shake to simulate train movement
+    {
+        if (shouldShake)
+        {
+            camera.localPosition = startPosition + Random.insideUnitSphere * power;
+           // duration -= Time.deltaTime * slowDownAmount;
+        }
+    }
 }

@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
     public float recoveryRate;
 
     public Slider content;
+    public Image fill;
 
     public KeyCode kC;
 
@@ -19,9 +20,11 @@ public class GameController : MonoBehaviour {
     public GameObject CountdownObj;
     public GameObject MainMenuObj;
 
+    private CameraShaker camShake;
+
     void Start ()
     {
-		
+        camShake = GetComponent<CameraShaker>();
 	}
 	
 
@@ -30,21 +33,27 @@ public class GameController : MonoBehaviour {
     
         if(Input.GetKeyDown(kC))
         {
-            content.value += 3.0f;
+            content.value += 3.0f; // TODO Decrease content.value when slider value is near top (make more difficult)
         }
 
-        if (content.gameObject.activeSelf == true)
+        if (content.gameObject.activeSelf == true && content.value > 0f)
         {
             HandleBar();
         }
+
+       if(fill.fillAmount <= 0.5f) // TODO Change shake intensity depending on slider value. Strong intensity when slider is 0, screen fade to black
+        {
+            camShake.power = 0.5f;
+        }
     }
 
+ 
     private void HandleBar()
     {
         if(content.value != maxStrength)
         {
             content.value = Mathf.MoveTowards(content.value, maxStrength, recoveryRate * Time.deltaTime);
-           
+
         }
     }
 
@@ -68,5 +77,10 @@ public class GameController : MonoBehaviour {
         {
             content.gameObject.SetActive(true); // activating slider
         }
+    }
+
+    private void ScreenShake()
+    {
+       
     }
 }
