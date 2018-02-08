@@ -5,33 +5,39 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
- 
+    [Header("Slider Values")]
     public float currStrength;
     public float maxStrength;
     public float recoveryRate;
+    public float fillValue;
 
+    [Header("Slider UI")]
     public Slider content;
     public Image fill;
 
+
+
     public KeyCode kC;
 
-   public bool countdownDone = false;
+    public bool countdownDone = false;
 
     public GameObject CountdownObj;
     public GameObject MainMenuObj;
 
     private CameraShaker camShake;
 
-    void Start ()
+    void Start()
     {
         camShake = GetComponent<CameraShaker>();
-	}
-	
+    }
 
-	void Update ()
+
+    void Update()
     {
-    
-        if(Input.GetKeyDown(kC))
+
+        fillValue = fill.fillAmount;
+
+        if (Input.GetKeyDown(kC))
         {
             content.value += 3.0f; // TODO Decrease content.value when slider value is near top (make more difficult)
         }
@@ -41,16 +47,15 @@ public class GameController : MonoBehaviour {
             HandleBar();
         }
 
-       if(fill.fillAmount <= 0.5f) // TODO Change shake intensity depending on slider value. Strong intensity when slider is 0, screen fade to black
-        {
-            camShake.power = 0.5f;
-        }
+        ScreenShake();
+
+
     }
 
- 
+
     private void HandleBar()
     {
-        if(content.value != maxStrength)
+        if (content.value != maxStrength)
         {
             content.value = Mathf.MoveTowards(content.value, maxStrength, recoveryRate * Time.deltaTime);
 
@@ -59,10 +64,10 @@ public class GameController : MonoBehaviour {
 
     public void StartCountDown()
     {
-        if(CountdownObj != null && CountdownObj.activeSelf == false)
+        if (CountdownObj != null && CountdownObj.activeSelf == false)
         {
             CountdownObj.SetActive(true);
-            
+
         }
     }
 
@@ -81,6 +86,17 @@ public class GameController : MonoBehaviour {
 
     private void ScreenShake()
     {
-       
+
+        if (fill.fillAmount <= 0.5f && fill.fillAmount > 0.2f) // TODO Change shake intensity depending on slider value. Strong intensity when slider is 0, screen fade to black
+        {
+            camShake.power = 0.2f;
+        }
+        else if (fill.fillAmount <= 0.2f)
+        {
+            camShake.power = 0.5f;
+        }
+
     }
+
 }
+
