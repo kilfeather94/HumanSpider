@@ -20,11 +20,14 @@ public class GameController : MonoBehaviour {
     public KeyCode kC;
 
     public bool countdownDone = false;
+    public bool gOver;
 
     public GameObject CountdownObj;
     public GameObject MainMenuObj;
 
     private CameraShaker camShake;
+
+    public AudioClip GamePlayMusic;
 
     void Start()
     {
@@ -48,6 +51,7 @@ public class GameController : MonoBehaviour {
         }
 
         ScreenShake();
+        GameOver();
 
 
     }
@@ -81,6 +85,10 @@ public class GameController : MonoBehaviour {
         if (content != null && content.gameObject.activeSelf == false)
         {
             content.gameObject.SetActive(true); // activating slider
+            ResetGame();
+            AudioSource gC_AudS = GetComponent<AudioSource>();
+            gC_AudS.clip = GamePlayMusic;
+            gC_AudS.Play();
         }
     }
 
@@ -96,6 +104,28 @@ public class GameController : MonoBehaviour {
             camShake.power = 0.5f;
         }
 
+    }
+
+    private void GameOver()
+    {
+         if(content.value <= 0f)
+        {
+            gOver = true;
+        }
+    }
+
+
+    public void ResetGame() // resetting values / variables
+    {
+        if (gOver)
+        {
+            gOver = false;
+        }
+
+        if (content.value < content.maxValue)
+        {
+            content.value = content.maxValue;
+        }
     }
 
 }
