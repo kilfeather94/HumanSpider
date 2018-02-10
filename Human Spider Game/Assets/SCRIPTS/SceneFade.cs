@@ -22,11 +22,6 @@ public class SceneFade : MonoBehaviour
 	}
 	
 
-	void Update ()
-    {
-		
-	}
-
     public void DisableSplashScreen()
     {
         splashScreen.enabled = false;
