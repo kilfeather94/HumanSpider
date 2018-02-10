@@ -1,0 +1,357 @@
+fileFormatVersion: 2
+guid: e8f8f5248356c4e8184556eb09aca33a
+timeCreated: 1518268781
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: HairSplitSmall
+    21300002: HairSplitBig
+    21300004: FingersLeft
+    21300006: Mouth1
+    21300008: Mouth2
+    21300010: Mouth3
+    21300012: Mouth4
+    21300014: FingersRight
+    21300016: HandLeft
+    21300018: Body
+    21300020: HandRight
+    21300022: ForearmLeft
+    21300024: ForearmRight
+    21300026: BicepLeft
+    21300028: BiceptRight
+    21300030: ShoulderLeft
+    21300032: ShoulderRight
+    21300034: Head
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HairSplitSmall
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 2314
+        width: 52
+        height: 49
+      alignment: 9
+      pivot: {x: 0.97276425, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HairSplitBig
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 2298
+        width: 117
+        height: 74
+      alignment: 9
+      pivot: {x: 0.026240943, y: 0.550161}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FingersLeft
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 1992
+        width: 160
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mouth1
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 2075
+        width: 74
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mouth2
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 2077
+        width: 74
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mouth3
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 2075
+        width: 75
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mouth4
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 2070
+        width: 74
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FingersRight
+      rect:
+        serializedVersion: 2
+        x: 2111
+        y: 1994
+        width: 160
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HandLeft
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1784
+        width: 191
+        height: 137
+      alignment: 9
+      pivot: {x: 0.957802, y: 0.5773641}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Body
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 0
+        width: 876
+        height: 1703
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.617369}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HandRight
+      rect:
+        serializedVersion: 2
+        x: 2060
+        y: 1786
+        width: 192
+        height: 137
+      alignment: 9
+      pivot: {x: 0.109119415, y: 0.5130428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ForearmLeft
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1446
+        width: 384
+        height: 149
+      alignment: 9
+      pivot: {x: 0.9644342, y: 0.48600125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ForearmRight
+      rect:
+        serializedVersion: 2
+        x: 2052
+        y: 1449
+        width: 384
+        height: 149
+      alignment: 9
+      pivot: {x: 0.05457751, y: 0.4930002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BicepLeft
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1152
+        width: 303
+        height: 160
+      alignment: 9
+      pivot: {x: 0.9233717, y: 0.5195549}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BiceptRight
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 1155
+        width: 303
+        height: 160
+      alignment: 9
+      pivot: {x: 0.08007007, y: 0.48696366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ShoulderLeft
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 778
+        width: 266
+        height: 194
+      alignment: 9
+      pivot: {x: 0.8530629, y: 0.5580913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ShoulderRight
+      rect:
+        serializedVersion: 2
+        x: 1886
+        y: 782
+        width: 270
+        height: 194
+      alignment: 9
+      pivot: {x: 0.22997731, y: 0.6252687}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Head
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 1796
+        width: 233
+        height: 324
+      alignment: 9
+      pivot: {x: 0.508612, y: 0.10983465}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
