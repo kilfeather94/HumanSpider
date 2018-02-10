@@ -15,19 +15,33 @@ public class GameController : MonoBehaviour {
     public Slider content;
     public Image fill;
 
+    [Header("Score")]
+    public Text scoreText;
+    public float timeNum;
 
+    [Header("Animators")]
+    public Animator leftArmAnim;
+    public Animator rightArmAnim;
+
+    [Header("Sprites")]
+    public GameObject[] mouthStates;
+    public int mouthIndex;
 
     public KeyCode kC;
 
     public bool countdownDone = false;
     public bool gOver;
+    public bool endGameSeq = false; //bool for End Game Coroutine sequence
 
+    [Header("Menu UI")]
     public GameObject CountdownObj;
     public GameObject MainMenuObj;
+    public GameObject EndGameObj;
 
     private CameraShaker camShake;
 
     public AudioClip GamePlayMusic;
+    public AudioClip GameOverMusic;
 
     void Start()
     {
@@ -45,14 +59,30 @@ public class GameController : MonoBehaviour {
             content.value += 3.0f; // TODO Decrease content.value when slider value is near top (make more difficult)
         }
 
-        if (content.gameObject.activeSelf == true && content.value > 0f)
+        if (content.gameObject.activeSelf == true && content.value > 0f && !gOver)  
         {
             HandleBar();
+            ScreenShake();
         }
 
-        ScreenShake();
+
+
+
         GameOver();
 
+        if (!gOver)  // && content.gameObject.activeSelf == true
+        {         
+            timeNum += 1 * Time.deltaTime;
+            scoreText.text = "SCORE: " + timeNum.ToString("f0");  //f0 removes decimals
+        }
+
+        
+        if(endGameSeq)
+        {
+           
+            StartCoroutine(EndGameTransition());
+        }
+ 
 
     }
 
@@ -80,12 +110,18 @@ public class GameController : MonoBehaviour {
         MainMenuObj.SetActive(isActive);
     }
 
+    public void EndGameMenuToggle(bool isActive)
+    {
+        EndGameObj.SetActive(isActive);
+    }
+
     public void StartGame()
     {
         if (content != null && content.gameObject.activeSelf == false)
         {
             content.gameObject.SetActive(true); // activating slider
-            ResetGame();
+            scoreText.gameObject.SetActive(true);
+            ReInit();
             AudioSource gC_AudS = GetComponent<AudioSource>();
             gC_AudS.clip = GamePlayMusic;
             gC_AudS.Play();
@@ -94,10 +130,28 @@ public class GameController : MonoBehaviour {
 
     private void ScreenShake()
     {
+        if(fill.fillAmount > 0.5f)
+        {
+            camShake.power = 0.1f;
+            leftArmAnim.SetInteger("ArmState", 0);
+            rightArmAnim.SetInteger("ArmState", 0);
+            mouthStates[0].SetActive(true);
+            mouthStates[1].SetActive(false);
+            mouthStates[2].SetActive(false);
+            mouthStates[3].SetActive(false);
 
-        if (fill.fillAmount <= 0.5f && fill.fillAmount > 0.2f) // TODO Change shake intensity depending on slider value. Strong intensity when slider is 0, screen fade to black
+            
+        }
+        else if (fill.fillAmount <= 0.5f && fill.fillAmount > 0.2f) // TODO Change shake intensity depending on slider value. Strong intensity when slider is 0, screen fade to black
         {
             camShake.power = 0.2f;
+            leftArmAnim.SetInteger("ArmState", 1);
+            rightArmAnim.SetInteger("ArmState", 1);
+            mouthStates[0].SetActive(false);
+            mouthStates[1].SetActive(false);
+            mouthStates[2].SetActive(false);
+            mouthStates[3].SetActive(true);
+
         }
         else if (fill.fillAmount <= 0.2f)
         {
@@ -108,14 +162,18 @@ public class GameController : MonoBehaviour {
 
     private void GameOver()
     {
-         if(content.value <= 0f)
+         if(content.value <= 0f && content.gameObject.activeSelf == true) 
         {
+            content.gameObject.SetActive(false);
             gOver = true;
+            endGameSeq = true;
+                     
         }
+
     }
 
 
-    public void ResetGame() // resetting values / variables
+    public void ReInit() // resetting values / variables
     {
         if (gOver)
         {
@@ -126,7 +184,37 @@ public class GameController : MonoBehaviour {
         {
             content.value = content.maxValue;
         }
+
+        timeNum = 0f;
     }
+
+    IEnumerator EndGameTransition()
+    {
+        endGameSeq = false;
+        
+        AudioSource gC_AudS = GetComponent<AudioSource>();
+        gC_AudS.Stop();
+        SceneFade sF = FindObjectOfType<SceneFade>();
+        sF.GetComponent<Animator>().SetTrigger("endFade");
+        yield return new WaitForSeconds(1f);
+        gC_AudS.clip = GameOverMusic;
+        gC_AudS.loop = false;
+        gC_AudS.Play();
+        yield return new WaitForSeconds(3f);
+        camShake.power = 0.1f;
+        EndGameObj.SetActive(true);
+        StopCoroutine(EndGameTransition());
+    }
+
+    public void Restart()
+    {
+        SceneFade sF = FindObjectOfType<SceneFade>();
+        sF.GetComponent<Animator>().SetTrigger("fadeIn");
+        EndGameMenuToggle(false);
+        CountdownObj.GetComponent<Animator>().Play("CountDown");
+
+    }
+
 
 }
 
