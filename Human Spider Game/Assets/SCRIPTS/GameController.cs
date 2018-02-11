@@ -25,7 +25,8 @@ public class GameController : MonoBehaviour {
 
     [Header("Sprites")]
     public GameObject[] mouthStates;
-    public int mouthIndex;
+    public GameObject[] webStates;
+
 
     public KeyCode kC;
 
@@ -139,8 +140,12 @@ public class GameController : MonoBehaviour {
             mouthStates[1].SetActive(false);
             mouthStates[2].SetActive(false);
             mouthStates[3].SetActive(false);
+            webStates[0].SetActive(true);
+            webStates[1].SetActive(true);
+            webStates[2].SetActive(false);
+            webStates[3].SetActive(false);
 
-            
+
         }
         else if (fill.fillAmount <= 0.5f && fill.fillAmount > 0.2f) // TODO Change shake intensity depending on slider value. Strong intensity when slider is 0, screen fade to black
         {
@@ -151,6 +156,10 @@ public class GameController : MonoBehaviour {
             mouthStates[1].SetActive(false);
             mouthStates[2].SetActive(false);
             mouthStates[3].SetActive(true);
+            webStates[0].SetActive(false);
+            webStates[1].SetActive(false);
+            webStates[2].SetActive(true);
+            webStates[3].SetActive(true);
 
         }
         else if (fill.fillAmount <= 0.2f)
@@ -195,7 +204,10 @@ public class GameController : MonoBehaviour {
         AudioSource gC_AudS = GetComponent<AudioSource>();
         gC_AudS.Stop();
         SceneFade sF = FindObjectOfType<SceneFade>();
-        sF.GetComponent<Animator>().SetTrigger("endFade");
+        if (sF.gameObject.activeSelf == true)
+        {
+            sF.GetComponent<Animator>().SetTrigger("endFade");
+        }
         yield return new WaitForSeconds(1f);
         gC_AudS.clip = GameOverMusic;
         gC_AudS.loop = false;
