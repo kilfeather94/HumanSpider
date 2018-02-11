@@ -8,7 +8,7 @@ public class SceneFade : MonoBehaviour
 
     public Image splashScreen;
     public GameObject mainMenu;
-    private Image fadeBlack;
+    public Image fadeBlack;
 
     RectTransform objectRectTransform;
 
